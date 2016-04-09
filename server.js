@@ -30,7 +30,7 @@ app.get('/api/todos', function(req, res) {
 
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err)
-            res.send(err)
+            res.send(err);
 
         res.json(todos); // return all todos in JSON format
     });
@@ -50,7 +50,7 @@ app.post('/api/todos', function(req, res) {
         // get and return all the todos after you create another
         Todo.find(function(err, todos) {
             if (err)
-                res.send(err)
+                res.send(err);
             res.json(todos);
         });
     });
@@ -68,7 +68,7 @@ app.delete('/api/todos/:todo_id', function(req, res) {
         // get and return all the todos after you create another
         Todo.find(function(err, todos) {
             if (err)
-                res.send(err)
+                res.send(err);
             res.json(todos);
         });
     });
@@ -79,10 +79,10 @@ app.get('*', function(req, res) {
     res.sendfile('./public/index.html'); // load the single view file (angular will handle the page changes on the front-end)
 });
 
-var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
  
 // listen (start app with node server.js) ======================================
 app.listen(server_port, server_ip_address, function () {
-      console.log( "Listening on " + server_ip_address + ", server_port " + port  )
+      console.log( "Listening on " + server_ip_address + ", server_port " + port  );
 });
